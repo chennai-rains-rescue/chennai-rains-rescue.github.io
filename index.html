@@ -54,12 +54,29 @@
         </div>
       </div>
       <div class="eight columns">
-        <div class="" id="googleforms">
+        <input type="radio" name="toggleForms" id="areaUpdateFormButton"> Area Update Form
+        <input type="radio" name="toggleForms" id="resourceRequestFormButton"> Resource Request Form
+        <div class="areaUpdateForm" id="googleforms" style="display:block">
           <iframe src="https://docs.google.com/forms/d/1Xd6tydqJ0p9Dg6OjTKCuT4OHhGf7cRJr9SEwGYlG2Nk/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="920px" scrolling="no"> </iframe>
+        </div>
+        <div class="resourceRequestForm" style="display:none;">
+          Coming soon
         </div>
       </div>
     </div>
   </div>
 </body>
-
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+$('input:radio[name="toggleForms"]').change(function() {
+  if ($('#areaUpdateFormButton').is(':checked')) {
+    $('.areaUpdateForm').css('display', 'block');
+    $('.resourceRequestForm').css('display', 'none');
+  } else if ($('#resourceRequestFormButton').is(':checked')) {
+    $('.resourceRequestForm').css('display', 'block');
+    $('.areaUpdateForm').css('display', 'none');
+  }
+});
+$('#areaUpdateFormButton').prop('checked', true);
+</script>
 </html>
